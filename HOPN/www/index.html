@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Haptic Outdoor Pedestrian Navigation</title>
+
+    <link rel="stylesheet" href="css/index.css">
+
+    <script src="cordova.js"></script>
+    <script src="js/wearableControls.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+<h1>Haptic Outdoor Pedestrian Navigation</h1>
+
+<p id="error"></p>
+<p id="reqUrl"></p>
+<p id="instructions"></p>
+<p id="distance"></p>
+<p id="test1"></p>
+<p id="test2"></p>
+<p id="test3"></p>
+
+<h4 id="formHeadline">Your destination coordinates:</h4>
+
+<form id="destination" >
+    <input type="text" name="endLatitude" placeholder="Latitude..">
+    <input type="text" name="endLongitude" placeholder="Longitude.."><br>
+    <input type="button" class="input-button" onclick="try{route();} catch(error){console.log('FAIL');}" value="Get route">
+</form>
+
+<div>
+    <button class="input-button" onclick="routePhysic()">Physic route</button>
+    <button class="input-button" onclick="routeStartup()">Startup route</button>
+</div>
+
+<div class="connections">
+    <h3>Connection status</h3>
+    <p id="rightWBConnection">Right wristband connecting...</p>
+    <p id="leftWBConnection">Left wristband connecting...</p>
+    <p id="collarConnection">Collar connecting...</p>
+</div>
+
+<div class="vibrations">
+    <div>
+        <h3>Wristbands vibrations</h3>
+        <button onclick="wbDispatchForward()">Forward</button>
+        <button onclick="wbDispatchSlightRight()">Slight right</button>
+        <button onclick="wbDispatchRight()">Right</button>
+        <button onclick="wbDispatchSharpRight()">Sharp right</button>
+        <button onclick="wbDispatchBackward()">Backward</button>
+        <button onclick="wbDispatchSharpLeft()">Sharp left</button>
+        <button onclick="wbDispatchLeft()">Left</button>
+        <button onclick="wbDispatchSlightLeft()">Slight left</button>
+    </div>
+
+    <div>
+        <h3>Collar vibrations</h3>
+        <button onclick="collarDispatchForward()">Forward</button>
+        <button onclick="collarDispatchSlightRight()">Slight right</button>
+        <button onclick="collarDispatchRight()">Right</button>
+        <button onclick="collarDispatchSharpRight()">Sharp right</button>
+        <button onclick="collarDispatchBackward()">Backward</button>
+        <button onclick="collarDispatchSharpLeft()">Sharp left</button>
+        <button onclick="collarDispatchLeft()">Left</button>
+        <button onclick="collarDispatchSlightLeft()">Slight left</button>
+    </div>
+</div>
+
+<p id="response"></p>
+
+<!-- include the Glitch button to show what the webpage is about and
+      to make it easier for folks to view source and remix -->
+<div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+<script src="https://button.glitch.me/button.js" defer></script>
+</body>
+</html>
